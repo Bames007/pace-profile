@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { inter, montserrat, playfair } from "./utils/constant";
 import "./globals.css";
+import Header from "./home/Header";
+import Footer from "./home/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -88,22 +90,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Preload critical fonts */}
-        <link
-          rel="preload"
-          href="/fonts/BebasNeue-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Poppins-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-
         {/* Favicon and App Icons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -185,6 +171,9 @@ export default function RootLayout({
           }}
         />
       </head>
+      {/* <header>
+        <Header />
+      </header> */}
       <body
         className={`${inter.className} ${playfair.className} ${montserrat.className} antialiased bg-white text-gray-900 overflow-x-hidden`}
         suppressHydrationWarning
@@ -195,6 +184,7 @@ export default function RootLayout({
         {/* Subtle grid pattern for entire site - updated to architectural grid */}
         <div className="fixed inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:64px_64px] -z-10" />
 
+        <Header />
         {children}
 
         {/* EBCom Technologies Watermark */}
